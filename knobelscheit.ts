@@ -11,6 +11,14 @@ export class Knobelscheit {
     isComplete(): boolean {
         return this.available.length === 0;
     }
+
+    isValidFlip(chosenNumbers: number[], diceSum: number): boolean {
+        const chosenSum = chosenNumbers.reduce((total, number) => total + number, 0);
+        if(chosenSum != diceSum) {
+            return false;
+        }
+        return chosenNumbers.every(number => this.available.includes(number));
+    }
 }
 
 export function roll() {

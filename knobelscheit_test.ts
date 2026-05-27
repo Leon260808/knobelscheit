@@ -48,3 +48,7 @@ Deno.test("newKnobelscheitGame_isComplete_trueWhenAllFlipped", function addTest(
     game.flip([1, 2, 3, 4, 5, 6, 7, 8, 9,]);
     assertEquals(game.isComplete(), true)
 })
+
+Deno.test("newKnobelscheitGame_isValidFlip_trueForCorrectSum", function addTest() {
+    assertEquals(new Knobelscheit().isValidFlip([3 , 4], 7), true);
+})
