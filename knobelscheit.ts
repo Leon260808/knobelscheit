@@ -1,7 +1,15 @@
 export class Knobelscheit {
     private available: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    getAvailableNumbers() : number[] {
-       return [...this.available]
+    getAvailableNumbers(): number[] {
+        return [...this.available]
+    }
+
+    flip(flippedNumbers: number[]): void {
+        this.available = this.available.filter(number => !flippedNumbers.includes(number))
+    }
+
+    isComplete(): boolean {
+        return this.available.length === 0;
     }
 }
 

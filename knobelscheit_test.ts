@@ -27,8 +27,24 @@ Deno.test("getCombinations_target7_excludesUnavailableNumbers", function addTest
     assertEquals(combinations.some(combination => combination.includes(3) && combination.includes(4)), false)
 });
 
-Deno.test("newKnobelscheitClass_allNineNumbersAvailable", function addTest() {
+Deno.test("newKnobelscheitGame_allNineNumbersAvailable", function addTest() {
     assertEquals(new Knobelscheit().getAvailableNumbers(), [1, 2, 3, 4, 5, 6, 7, 8, 9]);
 });
 
+Deno.test("newKnobelscheitGame_afterFlip_numbersRemoved", function addTest() {
+    const game = new Knobelscheit();
+    game.flip([3, 4]);
+    assertEquals(game.getAvailableNumbers().includes(3), false);
+    assertEquals(game.getAvailableNumbers().includes(4), false);
+    assertEquals(game.getAvailableNumbers().length, 7);
+});
 
+Deno.test("newKnobelscheitGame_isComplete_falseAtStart", function addTest() {
+    assertEquals(new Knobelscheit().isComplete(), false)
+})
+
+Deno.test("newKnobelscheitGame_isComplete_trueWhenAllFlipped", function addTest() {
+    const game = new Knobelscheit();
+    game.flip([1, 2, 3, 4, 5, 6, 7, 8, 9,]);
+    assertEquals(game.isComplete(), true)
+})
