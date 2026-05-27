@@ -24,7 +24,7 @@ async function main() {
     const game = new Knobelscheit();
     let rollCount = 0;
 
-    console.log("====KNOBELSCHEIT====")
+    console.log("======KNOBELSCHEIT======")
 
     while (!game.isComplete()) {
         displayBoard(game);
