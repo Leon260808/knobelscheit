@@ -22,6 +22,10 @@ Deno.test("getCombinations_target7_containsThreeAndFour", function addTest() {
     assertEquals(combinations.some(combination => combination.includes(3) && combination.includes(4)), true)
 });
 
+Deno.test("getCombinations_target7_excludesUnavailableNumbers", function addTest() {
+    const combinations = getCombinations(7, [1, 2, 5, 6, 7, 8, 9]);
+    assertEquals(combinations.some(combination => combination.includes(3) && combination.includes(4)), false)
+});
 
 
 
