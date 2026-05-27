@@ -1,3 +1,10 @@
+export class Knobelscheit {
+    private available: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    getAvailableNumbers() : number[] {
+       return [...this.available]
+    }
+}
+
 export function roll() {
     return Math.floor(Math.random() * 6) + 1;;
 }

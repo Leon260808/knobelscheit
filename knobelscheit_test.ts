@@ -1,5 +1,5 @@
 import { assertEquals } from "@std/assert";
-import { roll, getCombinations } from "./knobelscheit.ts";
+import { roll, getCombinations, Knobelscheit } from "./knobelscheit.ts";
 
 Deno.test("roll_minOne", function addTest() {
     assertEquals(roll() >= 1, true);
@@ -27,5 +27,8 @@ Deno.test("getCombinations_target7_excludesUnavailableNumbers", function addTest
     assertEquals(combinations.some(combination => combination.includes(3) && combination.includes(4)), false)
 });
 
+Deno.test("newKnobelscheitClass_allNineNumbersAvailable", function addTest() {
+    assertEquals(new Knobelscheit().getAvailableNumbers(), [1, 2, 3, 4, 5, 6, 7, 8, 9]);
+});
 
 
